@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <header>
+  <img src="https://raw.githubusercontent.com/ieanaxxyz-beep/test/refs/heads/main/image_1_1777879543062.jpg" alt="Logo"class="main-logo">
+  <h1>Sharlyne's Kitchen</h1>
+  <p>Made with love, served with a smile.</p>
+</header>
+
+<div class="settings-trigger" onclick="toggleSettings()">⚙️</div>
+
+<div id="settings-modal" class="modal">
+  <div class="modal-content settings-box dewy-glass">
+    <span class="close" onclick="toggleSettings()">&times;</span>
+    <h3>Settings</h3>
+    <hr>
+    <div class="setting-item">
+      <span>Dark Mode</span>
+      <label class="switch">
+        <input type="checkbox" id="dark-mode-checkbox">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<nav class="filter-bar">
+  <button class="btn active" onclick="filterSelection('all')">Show All</button>
+  <button class="btn" onclick="filterSelection('mains')">Mains</button>
+  <button class="btn" onclick="filterSelection('sides')">Sides</button>
+  <button class="btn" onclick="filterSelection('desserts')">Desserts</button>
+</nav>
+
+<main class="menu-grid">
+  
+<!-- MAINS   -->
+  <div class="menu-item mains">
+    <div class="card-image" style="background-color: #f8d7da;"></div>
+    <div class="card-info">
+      <h3>Bihun Goreng</h3>
+      <p>Layers of homemade pasta, rich meat sauce, and gooey cheese.</p>
+      <span class="price">RM4</span>
+    </div>
+  </div>
+  
+<!-- with options   -->
+  <div class="menu-item mains" onclick="openDetails('Nasi Lemak', 'Fragrant rice...', 'Regular', 'RM 5.00', 'With Ayam', 'RM 12.00')">
+  
+  <div class="card-image" style="background-color: #f8d7da;">
+    </div>
+
+  <div class="card-info">
+    <h3>Nasi Lemak</h3>
+    <p>Fragrant coconut rice with sambal and anchovies.</p>
+    <span class="price">From RM 5.00</span>
+    </div>
+</div>
+  
+<!-- SIDES   -->
+  <div class="menu-item sides">
+    <div class="card-image" style="background-color: #d1ecf1;"></div>
+    <div class="card-info">
+      <h3>Shumai</h3>
+      <p>Freshly baked dough tossed in herb butter and fresh garlic.</p>
+      <span class="price">RM4</span>
+    </div>
+  </div>
+  
+  <div class="menu-item sides unavailable">
+    <div class="card-image" style="background-color: #d1ecf1;"></div>
+    <div class="card-info">
+      <h3>Tempoyak</h3>
+      <p>Freshly baked dough tossed in herb butter and fresh garlic.</p>
+      <span class="price">RM</span>
+    </div>
+  </div>
+  
+  <div class="menu-item sides">
+    <div class="card-image" style="background-color: #d1ecf1;"></div>
+    <div class="card-info">
+      <h3>Apam</h3>
+      <p>Freshly baked dough tossed in herb butter and fresh garlic.</p>
+      <span class="price">RM4</span>
+    </div>
+  </div>
+  
+  <!--  with options  -->
+<div class="menu-item sides" 
+     onclick="openDetails('Popia', 'Rich chocolate...', [
+       {n: 'Carbonara', p: '5.00'}, 
+       {n: 'Kari Ayam', p: '15.00'}, 
+       {n: 'Sardine', p: '15.00'}
+     ])">
+  
+  <div class="card-image" style="background-color: #d1ecf1;"></div>
+
+  <div class="card-info">
+    <h3>Popia</h3>
+    <p>Savory and crunchy deep-fried spring rolls.</p>
+    <span class="price">From RM 5.00</span>
+  </div>
+</div>
+
+  
+<!--  DESSERTS  -->
+<!--  with options  -->
+  <div class="menu-item desserts" onclick="openDetails('Kek Batik', 'Rich chocolate...', 'Regular', 'RM 5.00', 'Horlick', 'RM 15.00')">
+  
+  <div class="card-image" style="background-color: #F5E5C6;">
+    </div>
+
+  <div class="card-info">
+    <h3>Kek Batik</h3>
+    <p>loremipsum</p>
+    <span class="price">From RM 5.00</span>
+    </div>
+</div>
+  
+  <!--  with options  -->
+  <div class="menu-item desserts" onclick="openDetails('Kek Batik', 'Rich chocolate...', 'Regular', 'RM 5.00', 'Kek Lapis Sarawak', 'RM 15.00')">
+  
+  <div class="card-image" style="background-color: #F5E5C6;">
+    </div>
+
+  <div class="card-info">
+    <h3>Kek Lapis</h3>
+    <p>loremipsum</p>
+    <span class="price">From RM 5.00</span>
+    </div>
+</div>
+  
+  <div class="menu-item desserts">
+    <div class="card-image" style="background-color: #F5E5C6;"></div>
+    <div class="card-info">
+      <h3>Kek Holiday Inn</h3>
+      <p>Freshly baked dough tossed in herb butter and fresh garlic.</p>
+      <span class="price">RM</span>
+    </div>
+  </div>
+  
+  <div class="menu-item desserts">
+    <div class="card-image" style="background-color: #F5E5C6;"></div>
+    <div class="card-info">
+      <h3>Kek Lumut</h3>
+      <p>Freshly baked dough tossed in herb butter and fresh garlic.</p>
+      <span class="price">RM</span>
+    </div>
+  </div>
+  
+  <div class="menu-item desserts">
+    <div class="card-image" style="background-color: #F5E5C6;"></div>
+    <div class="card-info">
+      <h3>Kek Belacan</h3>
+      <p>Freshly baked dough tossed in herb butter and fresh garlic.</p>
+      <span class="price">RM</span>
+    </div>
+  </div>
+  
+  <div class="menu-item desserts">
+    <div class="card-image" style="background-color: #F5E5C6;"></div>
+    <div class="card-info">
+      <h3>Kek Marble</h3>
+      <p>Freshly baked dough tossed in herb butter and fresh garlic.</p>
+      <span class="price">RM</span>
+    </div>
+  </div>
+  
+  <div class="menu-item desserts">
+    <div class="card-image" style="background-color: #F5E5C6;"></div>
+    <div class="card-info">
+      <h3>Cupcake</h3>
+      <p>Freshly baked dough tossed in herb butter and fresh garlic.</p>
+      <span class="price">RM</span>
+    </div>
+  </div>
+  
+  <!--  with options  -->
+  <div class="menu-item desserts" onclick="openDetails('Kek Batik', 'Rich chocolate...', 'Kosong (Gula)', 'RM 5.00/pcs', 'Chocolate', 'RM 15.00/pcs')">
+  
+  <div class="card-image" style="background-color: #F5E5C6;">
+    </div>
+
+  <div class="card-info">
+    <h3>Doughnut</h3>
+    <p>loremipsum</p>
+    <span class="price">From RM 5.00</span>
+    </div>
+</div>
+  
+ <!--  with options  -->
+  <div class="menu-item desserts" onclick="openDetails('Kek Batik', 'Rich chocolate...', 'Kosong (Gula)', 'RM 5.00/pcs', 'Chocolate', 'RM 15.00/pcs')">
+  
+  <div class="card-image" style="background-color: #F5E5C6;">
+    </div>
+
+  <div class="card-info">
+    <h3>Buns</h3>
+    <p>loremipsum</p>
+    <span class="price">From RM 5.00</span>
+    </div>
+</div>
+</main>
+
+<div id="modal" class="modal">
+  <div class="modal-content dewy-glass">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalName"></h2>
+    <p id="modalDesc"></p>
+    <hr class="modal-divider"> <!-- Added a nice divider line -->
+    <div id="modalOptions"></div> 
+    <!-- WhatsApp button removed from here -->
+  </div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
