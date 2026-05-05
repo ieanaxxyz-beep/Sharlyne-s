@@ -482,3 +482,69 @@ input:checked + .slider:before { transform: translateX(20px); }
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+
+/* Floating Button */
+.help-fab {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 100px;
+  height: 100px;
+  background-color: var(--nudy-red);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 9998; /* Just below the modal but above the food cards */
+  transition: transform 0.3s ease;
+}
+
+.help-fab:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+/* The Guide Card */
+.guide-card {
+  position: fixed;
+  bottom: 85px;
+  right: 25px;
+  width: 260px;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  z-index: 9998;
+  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+}
+
+.guide-card h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: var(--nudy-red);
+}
+
+.guide-card ol {
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.wa-order-btn {
+  display: block;
+  text-align: center;
+  background: #25D366; /* WhatsApp Green */
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 14px;
+}

@@ -246,6 +246,24 @@
     <span class="price">From RM 5.00</span>
     </div>
 </div>
+  
+    <!--  with options  -->
+<div class="menu-item desserts" 
+     onclick="openDetails('Bubur Kacang Hijau', 'Rich chocolate...', [
+       {n: 'Regular, small', p: '5.00'}, 
+       {n: 'Regular, big', p: '15.00'}, 
+       {n: 'with Durian, small', p: '15.00'},
+       {n: 'with Durian, big', p: '15.00'},
+     ])">
+  
+  <div class="card-image" style="background-color: #F5E5C6;"></div>
+
+  <div class="card-info">
+    <h3>Bubur Kacang Hijau</h3>
+    <p>Savory and crunchy deep-fried spring rolls.</p>
+    <span class="price">From RM 5.00</span>
+  </div>
+</div>
 </main>
 
 <div id="modal" class="modal">
@@ -257,6 +275,19 @@
     <div id="modalOptions"></div> 
     <!-- WhatsApp button removed from here -->
   </div>
+</div>
+
+<div class="help-fab" onclick="toggleGuide()">Order?</div>
+
+<div id="orderGuide" class="guide-card hidden">
+  <h3>How to Order 🥢</h3>
+  <ol>
+    <li>Browse the menu and pick your favorites.</li>
+    <li>Click an item to see prices and options.</li>
+    <li>Take a screenshot or note your choice.</li>
+    <li>WhatsApp us using the button below!</li>
+  </ol>
+  <a href="https://wa.me/60178446399" class="wa-order-btn">Order via WhatsApp</a>
 </div>
     <script  src="./script.js"></script>
 

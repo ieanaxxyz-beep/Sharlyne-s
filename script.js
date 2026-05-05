@@ -101,3 +101,11 @@ window.onclick = function(event) {
     settingsModal.style.display = "none";
   }
 }
+
+function toggleGuide() {
+  const guide = document.getElementById('orderGuide');
+  guide.classList.toggle('hidden');
+  
+  // Optional: if you still have that playClick function, use it!
+  if (typeof playClick === "function") playClick();
+}
