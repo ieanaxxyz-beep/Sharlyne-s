@@ -500,7 +500,7 @@ input:checked + .slider:before { transform: translateX(20px); }
   font-size: 24px;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  z-index: 9998; /* Just below the modal but above the food cards */
+  z-index: 99999 !important; /* Just below the modal but above the food cards */
   transition: transform 0.3s ease;
 }
 
@@ -518,7 +518,7 @@ input:checked + .slider:before { transform: translateX(20px); }
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  z-index: 9998;
+  z-index: 99999 !important;
   border: 1px solid rgba(255,255,255,0.3);
   backdrop-filter: blur(10px);
 }
