@@ -179,20 +179,42 @@ header p {
   grid-auto-flow: row dense;
 }
 
-/* THE MOBILE FIX (Phone view) */
-@media (max-width: 768px) {
+/* --- NEW ADAPTABLE MOBILE VIEW --- */
+@media (max-width: 600px) {
+  body { padding: 10px; }
+
+  header h1 { font-size: 2.5rem !important; }
+  .main-logo { width: 140px !important; height: 140px !important; }
+
   .menu-grid {
-    /* Changes to 1 Column on phones */
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr !important; 
+    gap: 15px;
+  }
+
+  /* This turns the vertical card into a horizontal list item */
+  .menu-item {
+    flex-direction: row !important; 
+    height: auto !important;
+    min-height: 110px;
+    align-items: center;
     padding: 10px;
   }
 
-  .menu-item {
-    width: 100%; /* Ensures card takes full phone width */
+  .card-image {
+    width: 100px !important; 
+    height: 100px !important;
+    flex-shrink: 0;
   }
 
-  .card-image {
-    height: 200px; /* Makes the food photos bigger on mobile */
+  .card-info {
+    padding: 0 0 0 15px !important;
+  }
+
+  .card-info p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Keeps descriptions from getting too long */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 
@@ -330,6 +352,47 @@ header p {
   background: rgba(216, 167, 177, 0.9); /* Dusty Pink for dark mode */
   border-color: rgba(255, 255, 255, 0.5);
 }
+
+/* Container for the options */
+#modalOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* The Option "Pill" */
+.option-pill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option-pill:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.02);
+}
+
+/* The Selected State */
+.option-pill.selected {
+  background: var(--nudy-red) !important;
+  border-color: var(--nudy-red);
+  box-shadow: 0 4px 15px rgba(181, 156, 136, 0.3);
+}
+
+.option-pill.selected .opt-name,
+.option-pill.selected .opt-price {
+  color: white !important;
+}
+
+.opt-name { font-weight: 500; color: var(--text-color); }
+.opt-price { font-weight: 700; color: var(--price-color); }
 
 /* 3. ACTIVE BUTTON PULSE */
 /* This makes the "Mains/Sides" buttons feel like they are glowing when selected */

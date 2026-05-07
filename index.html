@@ -9,6 +9,17 @@
   </head>
     
   <body>
+  <!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Sharlyne&#39;s</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 </style>
@@ -56,7 +67,11 @@
   </div>
   
 <!-- with options   -->
-  <div class="menu-item mains" onclick="openDetails('Nasi Lemak', 'Fragrant rice...', 'Regular', 'RM 5.00', 'With Ayam', 'RM 12.00')">
+  <div class="menu-item mains" 
+     onclick="openDetails('Nasi Lemak', 'Rich chocolate...', [
+      {n: 'Regular', p: '5.00'}, 
+       {n: 'With Ayam', p: '15.00'}, 
+     ])">
   
   <div class="card-image" style="background-color: #f8d7da;">
     </div>
@@ -69,7 +84,11 @@
 </div>
   
   <!-- with options   -->
-  <div class="menu-item mains" onclick="openDetails('Nasi Katok', 'Fragrant rice...', 'Regular', 'RM 5.00', 'With Ayam', 'RM 12.00')">
+  <div class="menu-item mains" 
+     onclick="openDetails('Nasi Katok', 'Rich chocolate...', [
+       {n: 'Regular', p: '5.00'}, 
+       {n: 'With Ayam', p: '15.00'}, 
+     ])">
   
   <div class="card-image" style="background-color: #f8d7da;">
     </div>
@@ -81,17 +100,20 @@
     </div>
 </div>
   
-  <!-- with options   -->
-  <div class="menu-item mains" onclick="openDetails('Nasi Sambal Pusu', 'Fragrant rice...', 'Sambal Only (no rice)', 'RM 5.00', 'Regular', 'RM 12.00')">
+  <!--  with options  -->
+<div class="menu-item mains" 
+     onclick="openDetails('Nasi Sambal Pusu', 'Rich chocolate...', [
+       {n: 'Sambal Only', p: '5.00'}, 
+       {n: 'Regular', p: '15.00'}, 
+     ])">
   
-  <div class="card-image" style="background-color: #f8d7da;">
-    </div>
+   <div class="card-image" style="background-color: #f8d7da;"></div>
 
   <div class="card-info">
     <h3>Nasi Sambal Pusu</h3>
-    <p>Fragrant coconut rice with sambal and anchovies.</p>
+    <p>Savory and crunchy deep-fried spring rolls.</p>
     <span class="price">From RM 5.00</span>
-    </div>
+  </div>
 </div>
   
    <div class="menu-item mains">
@@ -151,7 +173,11 @@
   
 <!--  DESSERTS  -->
 <!--  with options  -->
-  <div class="menu-item desserts" onclick="openDetails('Kek Batik', 'Rich chocolate...', 'Regular', 'RM 5.00', 'Horlick', 'RM 15.00')">
+  <div class="menu-item desserts" 
+     onclick="openDetails('Kek Batik', 'Rich chocolate...', [
+       {n: 'Regular', p: '5.00'}, 
+       {n: 'Horlick', p: '15.00'}, 
+     ])">
   
   <div class="card-image" style="background-color: #F5E5C6;">
     </div>
@@ -164,7 +190,11 @@
 </div>
   
   <!--  with options  -->
-  <div class="menu-item desserts" onclick="openDetails('Kek Batik', 'Rich chocolate...', 'Regular', 'RM 5.00', 'Kek Lapis Sarawak', 'RM 15.00')">
+   <div class="menu-item desserts" 
+     onclick="openDetails('Kek Lapis', 'Rich chocolate...', [
+       {n: 'Regular', p: '5.00'}, 
+       {n: 'Kek Lapis Sarawak', p: '15.00'}, 
+     ])">
   
   <div class="card-image" style="background-color: #F5E5C6;">
     </div>
@@ -222,7 +252,11 @@
   </div>
   
   <!--  with options  -->
-  <div class="menu-item desserts" onclick="openDetails('Kek Batik', 'Rich chocolate...', 'Kosong (Gula)', 'RM 5.00/pcs', 'Chocolate', 'RM 15.00/pcs')">
+  <div class="menu-item desserts" 
+     onclick="openDetails('Doughnut', 'Rich chocolate...', [
+       {n: 'Kosong (Gula)', p: '5.00/pcs'}, 
+       {n: 'Chocolate', p: '15.00/pcs'}, 
+     ])">
   
   <div class="card-image" style="background-color: #F5E5C6;">
     </div>
@@ -273,7 +307,6 @@
     <p id="modalDesc"></p>
     <hr class="modal-divider"> <!-- Added a nice divider line -->
     <div id="modalOptions"></div> 
-    <!-- WhatsApp button removed from here -->
   </div>
 </div>
 
@@ -296,3 +329,8 @@
 </html>
 
 <script src="script.js"></script>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
