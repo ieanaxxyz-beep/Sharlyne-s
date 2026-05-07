@@ -102,9 +102,17 @@
   
   <!--  with options  -->
 <div class="menu-item mains" 
-     onclick="openDetails('Nasi Sambal Pusu', 'Rich chocolate...', [
-       {n: 'Sambal Only', p: '5.00'}, 
-       {n: 'Regular', p: '15.00'}, 
+     onclick="openDetails('Nasi Sambal Pusu', 'Fragrant rice served with our signature crunchy pusu sambal.', [
+       {
+         n: 'Sambal Only', 
+         p: '5.00', 
+         img: 'https://raw.githubusercontent.com/ieanaxxyz-beep/test/refs/heads/main/photo_2026-05-07_10-41-27.jpg'
+       }, 
+       {
+         n: 'Regular', 
+         p: '15.00', 
+         img: 'https://images.your-site.com/full-set.jpg'
+       }
      ])">
   
    <div class="card-image" style="background-color: #f8d7da;"></div>
@@ -301,16 +309,26 @@
 </main>
 
 <div id="modal" class="modal">
-  <div class="modal-content dewy-glass">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2 id="modalName"></h2>
-    <p id="modalDesc"></p>
-    <hr class="modal-divider"> <!-- Added a nice divider line -->
-    <div id="modalOptions"></div> 
+  <div class="modal-wrapper">
+    
+    <div class="modal-photo hidden" id="photoBox">
+      <img src="" id="currentOptionImage" class="preview-img">
+    </div>
+
+    <div class="modal-content" id="detailsBox">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalName">Item Name</h2>
+      <p id="modalDesc">Item Description</p>
+      
+      <div id="modalOptions"></div>
+      </div>
+
   </div>
 </div>
 
-<div class="help-fab" onclick="toggleGuide()">Order?</div>
+<div class="help-fab" onclick="toggleGuide()">
+  Order?
+</div>
 
 <div id="orderGuide" class="guide-card hidden">
   <h3>How to Order 🥢</h3>
@@ -322,13 +340,8 @@
   </ol>
   <a href="https://wa.me/60178446399" class="wa-order-btn">Order via WhatsApp</a>
 </div>
-    <script  src="./script.js"></script>
 
-  </body>
-  
-</html>
-
-<script src="script.js"></script>
+<script src="./script.js"></script>
     <script  src="./script.js"></script>
 
   </body>

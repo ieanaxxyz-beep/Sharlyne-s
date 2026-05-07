@@ -25,14 +25,22 @@ function filterSelection(category) {
 
 function openDetails(name, desc, options) {
   const modal = document.getElementById('modal');
-  const nameField = document.getElementById('modalName');
-  const descField = document.getElementById('modalDesc');
+  const detailsBox = document.getElementById('detailsBox');
+  const photoBox = document.getElementById('photoBox');
+  const photoImg = document.getElementById('currentOptionImage');
   const container = document.getElementById('modalOptions');
 
-  nameField.innerText = name;
-  descField.innerText = desc;
+  // 1. Reset everything to "Center Mode" when first opening
+  document.getElementById('modalName').innerText = name;
+  document.getElementById('modalDesc').innerText = desc;
   container.innerHTML = ""; 
+  
+  // Remove animation classes and hide photo box so it starts clean
+  detailsBox.classList.remove('slide-left');
+  photoBox.classList.add('hidden');
+  photoBox.classList.remove('fade-in-pop');
 
+  // 2. Build the options
   if (Array.isArray(options) && options.length > 0) {
     options.forEach(opt => {
       const btn = document.createElement("div");
@@ -43,13 +51,45 @@ function openDetails(name, desc, options) {
       `;
       
       btn.onclick = function() {
+        // Highlighting the selected pill
         document.querySelectorAll('.option-pill').forEach(p => p.classList.remove('selected'));
         btn.classList.add('selected');
+
+        // 3. THE VISION: If the option has an image, slide and show!
+        if (opt.img) {
+          // Set the image source
+          photoImg.src = opt.img;
+          
+          // Show the box and trigger animations
+          photoBox.classList.remove('hidden');
+          
+          // Force a tiny restart on animations so they play every click
+          detailsBox.classList.remove('slide-left');
+          photoBox.classList.remove('fade-in-pop');
+          void detailsBox.offsetWidth; // This is a "magic" line to reset CSS animations
+          
+          detailsBox.classList.add('slide-left');
+          photoBox.classList.add('fade-in-pop');
+        }
       };
+      
       container.appendChild(btn);
     });
   }
+  
   modal.style.display = 'block';
+}
+
+function closeModal() {
+  const modal = document.getElementById('modal');
+  const detailsBox = document.getElementById('detailsBox');
+  const photoBox = document.getElementById('photoBox');
+
+  modal.style.display = 'none';
+  
+  // Clean up classes so it doesn't look "stuck" next time you open it
+  detailsBox.classList.remove('slide-left');
+  photoBox.classList.add('hidden');
 }
 
 function closeModal() {
