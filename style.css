@@ -456,61 +456,6 @@ header p {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
-/* 1. THE WRAPPER: The stable container for both */
-.modal-wrapper {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: center !important;
-  align-items: center !important; /* Forces vertical middle alignment */
-  
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  width: auto !important; /* Shrinks to fit the two boxes */
-  height: 500px; /* Gives them a fixed "track" to sit in */
-  gap: 40px; /* Guaranteed space between photo and text */
-  z-index: 10001;
-}
-
-/* 2. THE PHOTO WINDOW (Left) */
-.modal-photo {
-  width: 320px !important;
-  height: fit-content !important; 
-  background: var(--glass-white);
-  backdrop-filter: blur(15px);
-  border-radius: 30px;
-  padding: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  display: block;
-}
-
-/* 3. THE OPTIONS WINDOW (Right) */
-.modal-content {
-  width: 340px !important;
-  height: fit-content !important; 
-  background: var(--glass-white);
-  border-radius: 30px;
-  padding: 25px;
-  
-  /* REMOVE ALL CENTERING FROM THE BOX ITSELF */
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  transform: none !important; 
-  margin: 0 !important;
-}
-
-/* 4. THE IMAGE */
-.preview-img {
-  width: 100%;
-  max-height: 400px;
-  border-radius: 20px;
-  object-fit: cover;
-}
-
 /* 2. THE TWISTING CLOSE BUTTON (Top Right) */
 .close {
   position: absolute;
