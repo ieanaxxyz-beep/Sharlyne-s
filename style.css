@@ -593,18 +593,19 @@ input:checked + .slider:before { transform: translateX(20px); }
   display: none !important;
 }
 
-/* --- MOBILE RESPONSIVENESS --- */
+/* --- MOBILE RESPONSIVENESS (CONSOLIDATED) --- */
 @media (max-width: 768px) {
   
+  /* 1. HEADER & LOGO */
   .main-logo {
     width: 200px !important; 
     height: 200px !important;
-    margin-bottom: 0 !important; /* Tightens the vertical space */
+    margin-bottom: 0 !important;
   }
   
   header h1 {
-    font-size: 2.2rem !important; /* Smaller but still prominent */
-    margin-top: -30px !important; /* Adjusted for the 200px logo height */
+    font-size: 2.2rem !important;
+    margin-top: -30px !important;
   }
   
   header p {
@@ -612,7 +613,7 @@ input:checked + .slider:before { transform: translateX(20px); }
     margin-top: -2px !important;
   }
   
-  /* 1. GRID & CARDS */
+  /* 2. GRID & CARDS */
   .menu-grid {
     grid-template-columns: 1fr; 
     padding: 20px;
@@ -628,24 +629,23 @@ input:checked + .slider:before { transform: translateX(20px); }
   }
 
   .card-image {
-    width: 140px !important; /* Slightly smaller square to give text more room */
+    width: 140px !important;
     height: 160px !important;
     flex-shrink: 0;
   }
 
-  /* 2. TEXT TIGHTENING (The Gap Fix) */
   .card-info {
     padding: 15px !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2px; /* Controlled small gap instead of big margins */
+    gap: 2px;
   }
 
   .card-info h2, 
   .card-info p, 
   .card-info .price {
-    margin: 0 !important; /* Removes the default spacing that pushed them apart */
+    margin: 0 !important;
     line-height: 1.2;
   }
 
@@ -666,63 +666,57 @@ input:checked + .slider:before { transform: translateX(20px); }
   }
 
   /* 3. MODAL ADJUSTMENTS */
-@media (max-width: 768px) {
   .modal-content {
-    width: 85%;          /* Slightly narrower so it doesn't touch screen edges */
-    height: auto;        /* Let it shrink to fit the content! */
-    max-height: 85vh;    /* Prevents it from going off-screen */
-    border-radius: 20px; /* Softer corners for mobile */
+    width: 85%;
+    height: auto;
+    max-height: 85vh;
+    border-radius: 20px;
   }
 
- #photoBox {
-    display: flex;         /* Ensures we can use flex properties */
-    align-items: center;   /* Centering vertically */
-    justify-content: center; /* Centering horizontally */
-    height: 250px;         /* Giving it enough room to actually "center" in */
+  #photoBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
     padding: 35px 0;
   }
 
   #detailsBox {
-    padding: 20px;       /* Less padding so text isn't swimming in space */
+    padding: 20px;
   }
 
-  /* Make the food image slightly smaller to fit the new box */
   #currentOptionImage {
-   max-height: 100%;      /* Prevents the image from overflowing the box */
-    width: auto;           /* Keeps the aspect ratio perfect */
+    max-height: 100%;
+    width: auto;
     object-fit: contain;
   }
 
-  /* Shrink the options pills slightly for thumbs */
   .option-pill {
     padding: 10px 10px;
     font-size: 14px;
   }
   
-  /* Shrink the overall settings window */
+  /* 4. SETTINGS BOX ADJUSTMENTS */
   .modal-content.settings-box {
-    width: 80%;           /* Narrower than the food menu */
-    max-width: 320px;     /* Keeps it very compact */
-    height: auto;         /* Only as tall as the content */
-    padding: 20px;        /* Tightens internal spacing */
+    width: 80%;
+    max-width: 320px;
+    height: auto;
+    padding: 20px;
     border-radius: 15px;
   }
 
-  /* Reduce header size for the settings */
   .settings-box h3 {
     font-size: 1.2rem;
     margin-bottom: 15px;
   }
 
-  /* Make the list items snugger */
   .settings-box .setting-item {
     padding: 10px 0;
     font-size: 14px;
   }
 
-  /* Adjust the HR margin */
   .settings-box hr {
     margin-bottom: 10px;
     opacity: 0.1;
   }
-}
+} /* This final bracket closes the entire media query */

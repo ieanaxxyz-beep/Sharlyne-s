@@ -135,19 +135,42 @@ if (darkModeCheckbox) {
   });
 }
 
-// 1. Elements and initial volume setup
+// 1. Grab elements
 const bgm = document.getElementById('bgm');
 const bgmToggle = document.getElementById('bgm-toggle');
 
-// Set a comfortable background volume (0.0 to 1.0)
-if (bgm) bgm.volume = 0.2; 
+// 2. Set the volume (0.2 is the perfect 'cozy' level)
+if (bgm) bgm.volume = 0.2;
 
-// 2. The Toggle Function for your Settings Menu
+// 3. The Autoplay "Trigger" Function
+function attemptAutoplay() {
+  const savedStatus = localStorage.getItem('bgmEnabled');
+  
+  // Only play if they haven't explicitly turned it off before
+  if (savedStatus !== 'false' && bgm && bgm.paused) {
+    bgm.play()
+      .then(() => {
+        if (bgmToggle) bgmToggle.checked = true;
+        localStorage.setItem('bgmEnabled', 'true');
+      })
+      .catch(() => {
+        // This catch is normal; it waits for the next click
+      });
+  }
+}
+
+// 4. Listen for ANY first interaction on the page
+// Using 'mousedown' makes it feel more immediate than 'click'
+document.addEventListener('mousedown', attemptAutoplay, { once: true });
+document.addEventListener('touchstart', attemptAutoplay, { once: true });
+document.addEventListener('keydown', attemptAutoplay, { once: true });
+
+// 5. The Toggle Function (for your Settings Modal)
 function toggleBGM() {
   if (!bgm || !bgmToggle) return;
 
   if (bgmToggle.checked) {
-    bgm.play().catch(e => console.log("Playback blocked until interaction."));
+    bgm.play();
     localStorage.setItem('bgmEnabled', 'true');
   } else {
     bgm.pause();
@@ -155,27 +178,12 @@ function toggleBGM() {
   }
 }
 
-// 3. Auto-sync the toggle state on page load
-window.addEventListener('DOMContentLoaded', () => {
-  const savedStatus = localStorage.getItem('bgmEnabled');
-  
+// 6. Sync the toggle UI when the page refreshes
+window.addEventListener('load', () => {
   if (bgmToggle) {
-    // If it's a new user or they had it 'true', keep it checked
-    bgmToggle.checked = (savedStatus !== 'false');
+    bgmToggle.checked = (localStorage.getItem('bgmEnabled') !== 'false');
   }
 });
-
-// 4. The "Autoplay" fix: Play on the very first click anywhere
-document.addEventListener('click', () => {
-  const savedStatus = localStorage.getItem('bgmEnabled');
-  
-  // Only play if the user hasn't explicitly muted it in the past
-  if (savedStatus !== 'false' && bgm && bgm.paused) {
-    bgm.play();
-    if (bgmToggle) bgmToggle.checked = true;
-    localStorage.setItem('bgmEnabled', 'true');
-  }
-}, { once: true }); // 'once: true' ensures this only runs on the first click
 
 // Global click handler to close modals
 window.onclick = function(event) {
