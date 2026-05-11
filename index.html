@@ -24,8 +24,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 </style>
 
+<!--  Audio   -->
+<audio id="click-sound" src="https://files.catbox.moe/huq2sw.mp3"></audio>
+<audio id="select-sound" src="https://files.catbox.moe/dggxor.mp3"></audio>
+<audio id="order-sound" src="https://files.catbox.moe/e6ieg3.mp3"></audio>
+<audio id="setting-sound" src="https://files.catbox.moe/7lc0v7.mp3"></audio>
+<audio id="LDtoggle-sound" src="https://files.catbox.moe/4iqeqo.mp3"></audio>
+<audio id="bgm" loop>
+  <source src="https://files.catbox.moe/a6i5ve.mp3" type="audio/mpeg">
+</audio>
+    
 <header>
-  <img src="https://raw.githubusercontent.com/ieanaxxyz-beep/test/refs/heads/main/image_1_1777879543062.jpg" alt="Logo"class="main-logo">
+  <img src="https://raw.githubusercontent.com/ieanaxxyz-beep/test/refs/heads/main/Sharlyne's%20Logo.png" alt="Logo"class="main-logo">
   <h1>Sharlyne's Kitchen</h1>
   <p>Made with love, served with a smile.</p>
 </header>
@@ -44,6 +54,14 @@
         <span class="slider round"></span>
       </label>
     </div>
+    
+  <div class="setting-item">
+  <span>Background Music</span>
+  <label class="switch">
+    <input type="checkbox" id="bgm-toggle" onchange="toggleBGM()">
+    <span class="slider"></span>
+  </label>
+</div>
   </div>
 </div>
 
@@ -61,16 +79,24 @@
     <div class="card-image" style="background-color: #f8d7da;"></div>
     <div class="card-info">
       <h3>Bihun Goreng</h3>
-      <p>Layers of homemade pasta, rich meat sauce, and gooey cheese.</p>
+      <p>Classic bihun goreng packed with savory flavor, and the comforting taste of homemade cooking.</p>
       <span class="price">RM4</span>
     </div>
   </div>
   
 <!-- with options   -->
-  <div class="menu-item mains" 
-     onclick="openDetails('Nasi Lemak', 'Rich chocolate...', [
-      {n: 'Regular', p: '5.00'}, 
-       {n: 'With Ayam', p: '15.00'}, 
+ <div class="menu-item mains" 
+     onclick="openDetails('Nasi Lemak', 'Fragrant rice served with our signature crunchy pusu sambal.', [
+       {
+         n: 'Regular (Biasa)', 
+         p: '5.00', 
+         img: 'https://raw.githubusercontent.com/ieanaxxyz-beep/test/refs/heads/main/photo_2026-05-07_10-41-27.jpg'
+       }, 
+       {
+         n: 'with Chicken (dengan Ayam)', 
+         p: '15.00', 
+         img: 'https://images.your-site.com/full-set.jpg'
+       }
      ])">
   
   <div class="card-image" style="background-color: #f8d7da;">
@@ -78,16 +104,24 @@
 
   <div class="card-info">
     <h3>Nasi Lemak</h3>
-    <p>Fragrant coconut rice with sambal and anchovies.</p>
+    <p>Steamed rice paired with savory homemade sambal for a simple, comforting meal.</p>
     <span class="price">From RM 5.00</span>
     </div>
 </div>
   
   <!-- with options   -->
-  <div class="menu-item mains" 
-     onclick="openDetails('Nasi Katok', 'Rich chocolate...', [
-       {n: 'Regular', p: '5.00'}, 
-       {n: 'With Ayam', p: '15.00'}, 
+   <div class="menu-item mains" 
+     onclick="openDetails('Nasi Lemak', 'Fragrant rice served with our signature crunchy pusu sambal.', [
+       {
+         n: 'Regular (Biasa)', 
+         p: '5.00', 
+         img: 'https://raw.githubusercontent.com/ieanaxxyz-beep/test/refs/heads/main/photo_2026-05-07_10-41-27.jpg'
+       }, 
+       {
+         n: 'with Chicken (dengan Ayam)', 
+         p: '15.00', 
+         img: 'https://images.your-site.com/full-set.jpg'
+       }
      ])">
   
   <div class="card-image" style="background-color: #f8d7da;">
@@ -95,23 +129,31 @@
 
   <div class="card-info">
     <h3>Nasi Katok</h3>
-    <p>Fragrant coconut rice with sambal and anchovies.</p>
+    <p>Steamed rice paired with savory homemade sambal for a simple, comforting meal.</p>
     <span class="price">From RM 5.00</span>
     </div>
 </div>
   
   <!--  with options  -->
 <div class="menu-item mains" 
-     onclick="openDetails('Nasi Sambal Pusu', 'Rich chocolate...', [
-       {n: 'Sambal Only', p: '5.00'}, 
-       {n: 'Regular', p: '15.00'}, 
+     onclick="openDetails('Nasi Sambal Pusu', 'Fragrant rice served with our signature crunchy pusu sambal.', [
+       {
+         n: 'Sambal Only', 
+         p: '5.00', 
+         img: 'https://raw.githubusercontent.com/ieanaxxyz-beep/test/refs/heads/main/photo_2026-05-07_10-41-27.jpg'
+       }, 
+       {
+         n: 'Regular', 
+         p: '15.00', 
+         img: 'https://images.your-site.com/full-set.jpg'
+       }
      ])">
   
    <div class="card-image" style="background-color: #f8d7da;"></div>
 
   <div class="card-info">
     <h3>Nasi Sambal Pusu</h3>
-    <p>Savory and crunchy deep-fried spring rolls.</p>
+    <p>Steamed rice paired with savory homemade sambal for a simple, comforting meal.</p>
     <span class="price">From RM 5.00</span>
   </div>
 </div>
@@ -301,16 +343,28 @@
 </main>
 
 <div id="modal" class="modal">
-  <div class="modal-content dewy-glass">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2 id="modalName"></h2>
-    <p id="modalDesc"></p>
-    <hr class="modal-divider"> <!-- Added a nice divider line -->
-    <div id="modalOptions"></div> 
-  </div>
-</div>
+  <!-- Remove modal-wrapper; the CSS applies the flexbox to .modal-content -->
+  <div class="modal-content"> 
+    
+    <!-- LEFT SIDE: Text and Options -->
+    <div id="detailsBox">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalName">Item Name</h2>
+      <p id="modalDesc">Item Description</p>
+      <div id="modalOptions"></div>
+    </div>
 
-<div class="help-fab" onclick="toggleGuide()">Order?</div>
+    <!-- RIGHT SIDE: The Image -->
+    <div class="modal-photo" id="photoBox">
+      <img src="" id="currentOptionImage" class="preview-img">
+    </div>
+
+  </div>
+    </div>
+
+<div class="help-fab" onclick="toggleGuide()">
+  Order?
+</div>
 
 <div id="orderGuide" class="guide-card hidden">
   <h3>How to Order 🥢</h3>
@@ -322,13 +376,8 @@
   </ol>
   <a href="https://wa.me/60178446399" class="wa-order-btn">Order via WhatsApp</a>
 </div>
-    <script  src="./script.js"></script>
 
-  </body>
-  
-</html>
-
-<script src="script.js"></script>
+<script src="./script.js"></script>
     <script  src="./script.js"></script>
 
   </body>
