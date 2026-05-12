@@ -593,130 +593,87 @@ input:checked + .slider:before { transform: translateX(20px); }
   display: none !important;
 }
 
-/* --- MOBILE RESPONSIVENESS (CONSOLIDATED) --- */
+/* --- MOBILE RESPONSIVENESS (CONSOLIDATED FOR GITHUB) --- */
 @media (max-width: 768px) {
   
   /* 1. HEADER & LOGO */
   .main-logo {
-    width: 200px !important; 
-    height: 200px !important;
-    margin-bottom: 0 !important;
+    width: 150px !important; /* Slightly smaller for mobile screens */
+    height: auto !important;
+    margin-bottom: 10px !important;
   }
   
   header h1 {
-    font-size: 2.2rem !important;
-    margin-top: -30px !important;
+    font-size: 1.8rem !important;
+    margin-top: 0 !important;
   }
   
   header p {
-    font-size: 14px !important;
-    margin-top: -2px !important;
+    font-size: 13px !important;
   }
   
-  /* 2. GRID & CARDS */
+  /* 2. GRID - FORCE TO 1 COLUMN */
   .menu-grid {
-    grid-template-columns: 1fr; 
-    padding: 20px;
-    gap: 18px; 
+    grid-template-columns: 1fr !important; /* This fixes the 3-column issue in your screenshot */
+    padding: 15px !important;
+    gap: 15px !important; 
   }
 
+  /* 3. CARD LAYOUT (Horizontal) */
   .menu-item {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 160px;
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    height: 120px !important; /* Snugger height for mobile */
     align-items: stretch;
+    overflow: hidden;
   }
 
   .card-image {
-    width: 140px !important;
-    height: 160px !important;
+    width: 100px !important;
+    height: 120px !important;
     flex-shrink: 0;
+    object-fit: cover;
   }
 
   .card-info {
-    padding: 15px !important;
+    padding: 10px !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2px;
-  }
-
-  .card-info h2, 
-  .card-info p, 
-  .card-info .price {
-    margin: 0 !important;
-    line-height: 1.2;
+    flex-grow: 1;
   }
 
   .card-info h2 {
-    font-size: 18px;
-    margin-bottom: 2px !important;
+    font-size: 16px !important;
+    margin: 0 0 2px 0 !important;
   }
 
   .card-info p {
-    font-size: 13px;
+    font-size: 12px !important;
+    line-height: 1.3;
+    margin: 0 0 4px 0 !important;
+    display: -webkit-box;
     -webkit-line-clamp: 2;
-    margin-bottom: 4px !important;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .price {
-    font-size: 15px;
-    margin-top: 2px !important;
+    font-size: 14px !important;
+    font-weight: bold;
+    margin: 0 !important;
   }
 
-  /* 3. MODAL ADJUSTMENTS */
+  /* 4. SETTINGS & MODAL */
   .modal-content {
-    width: 85%;
-    height: auto;
-    max-height: 85vh;
-    border-radius: 20px;
+    width: 90% !important;
+    max-height: 80vh;
   }
 
-  #photoBox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 250px;
-    padding: 35px 0;
-  }
-
-  #detailsBox {
-    padding: 20px;
-  }
-
-  #currentOptionImage {
-    max-height: 100%;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .option-pill {
-    padding: 10px 10px;
-    font-size: 14px;
-  }
-  
-  /* 4. SETTINGS BOX ADJUSTMENTS */
   .modal-content.settings-box {
-    width: 80%;
-    max-width: 320px;
-    height: auto;
-    padding: 20px;
-    border-radius: 15px;
+    width: 85% !important;
+    max-width: 300px;
+    padding: 15px !important;
   }
-
-  .settings-box h3 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-  }
-
-  .settings-box .setting-item {
-    padding: 10px 0;
-    font-size: 14px;
-  }
-
-  .settings-box hr {
-    margin-bottom: 10px;
-    opacity: 0.1;
-  }
-} /* This final bracket closes the entire media query */
+} /* This bracket closes the entire media query */
