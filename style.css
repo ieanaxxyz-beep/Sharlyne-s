@@ -20,6 +20,7 @@
 
   /* CHANGE THIS: Use a lighter pink/peach so it's readable */
   --price-color: #F5BAD4; 
+  --price-color1: #000000; 
 }
 
 /* --- LIGHT MODES --- */
@@ -207,7 +208,7 @@ header p {
   width: 400px; /* Matching the grid column */
   
   /* REDUCE THIS: A smaller height forces the rectangular shape */
-  height: 300px; 
+  height: 430px; 
   
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -241,6 +242,15 @@ header p {
   font-size: 16px;
   line-height: 1.4;
   opacity: 0.8;
+}
+
+.card-image {
+  width: 100%;
+  height: 100px;       /* Adjust this height to match your design preferred size */
+  object-fit: cover;   /* This crops the image beautifully without squeezing or warping it */
+  border-top-left-radius: 15px;  /* Keeps the top corners matching your card's roundness */
+  border-top-right-radius: 15px;
+  display: block;
 }
 
 [data-theme="dark"] .card-info h3 {
